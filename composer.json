@@ -1,0 +1,23 @@
+{
+  "name": "gephart/quality",
+  "type": "library",
+  "description": "Gephart Quality",
+  "keywords": [],
+  "homepage": "https://github.com/gephart/quality",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michal Katuščák",
+      "email": "michal@katuscak.cz"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": { "Gephart\\Request\\": "src/" },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  }
+}
