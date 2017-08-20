@@ -1,6 +1,6 @@
 <?php
 
-namespace Gephart\Quality;
+namespace Gephart\Quality\Entity;
 
 final class ClassMetric extends MetricAbstract
 {

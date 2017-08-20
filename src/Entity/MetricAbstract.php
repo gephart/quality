@@ -1,6 +1,6 @@
 <?php
 
-namespace Gephart\Quality;
+namespace Gephart\Quality\Entity;
 
 abstract class MetricAbstract
 {

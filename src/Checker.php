@@ -2,6 +2,8 @@
 
 namespace Gephart\Quality;
 
+use Gephart\Quality\Entity\ClassMetric;
+use Gephart\Quality\Entity\MethodMetric;
 use PDepend\Application;
 use PDepend\Engine;
 
