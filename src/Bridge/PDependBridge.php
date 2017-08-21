@@ -82,7 +82,6 @@ final class PDependBridge
 
         $methods = $class->method;
 
-        /** @var \SimpleXMLElement $method */
         foreach ($methods as $method) {
             $method_metric = $this->analyseMethod($method);
             $class_metric->addMethod($method_metric);

@@ -20,6 +20,9 @@ final class Issue
     /** @var int */
     private $given;
 
+    /** @var int */
+    private $percent;
+
     /**
      * @return string
      */
@@ -98,6 +101,22 @@ final class Issue
     public function setGiven(int $given)
     {
         $this->given = $given;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPercent(): int
+    {
+        return $this->percent;
+    }
+
+    /**
+     * @param int $percent
+     */
+    public function setPercent(int $percent)
+    {
+        $this->percent = $percent;
     }
 
 }

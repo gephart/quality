@@ -70,4 +70,12 @@ final class ClassQuality
         $this->issues[] = $issue;
     }
 
+    /**
+     * @param Issue[] $issues
+     */
+    public function addIssues(array $issues)
+    {
+        $this->issues = array_merge($this->issues, $issues);
+    }
+
 }

@@ -51,4 +51,24 @@ class CheckerTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($method_metric->getLoc(), 9);
     }
 
+    public function testQuality()
+    {
+        $quality = $this->checker->getQuality();
+
+        $this->assertNotEmpty($quality);
+
+        $class_name = get_class(current($quality));
+        $this->assertEquals($class_name, \Gephart\Quality\Entity\ClassQuality::class);
+
+        foreach($quality as $class_quality) {
+            $class_name = $class_quality->getClassName();
+            $percent = $class_quality->getPercent();
+
+            $expected = $class_name . " : 100";
+            $given = $class_name . " : " . $percent;
+
+            $this->assertEquals($expected, $given);
+        }
+    }
+
 }
