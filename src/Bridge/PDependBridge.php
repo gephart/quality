@@ -65,6 +65,10 @@ final class PDependBridge
         return simplexml_load_file($file);
     }
 
+    /**
+     * @param \SimpleXMLElement $class
+     * @return ClassMetric
+     */
     private function analyseClass(\SimpleXMLElement $class)
     {
         $attributes = $class->attributes();
@@ -87,6 +91,10 @@ final class PDependBridge
         return $class_metric;
     }
 
+    /**
+     * @param \SimpleXMLElement $method
+     * @return MethodMetric
+     */
     private function analyseMethod(\SimpleXMLElement $method)
     {
         $attributes = $method->attributes();

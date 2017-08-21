@@ -35,6 +35,9 @@ final class Checker
         $this->class_metrics = ["ce" => 50, "dit" => 6, "nom" => 20];
     }
 
+    /**
+     * @param string $dir
+     */
     public function setDir(string $dir)
     {
         $this->dir = $dir;
@@ -48,5 +51,10 @@ final class Checker
         $dir = $this->dir;
         $class_metrics = $this->pdepend_bridge->analyse($dir);
         return $class_metrics;
+    }
+
+    public function getQuality()
+    {
+
     }
 }
