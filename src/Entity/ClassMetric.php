@@ -74,6 +74,20 @@ final class ClassMetric extends MetricAbstract
     }
 
     /**
+     * @param string $method_name
+     * @return MethodMetric|null
+     */
+    public function getMethod(string $method_name): ?MethodMetric
+    {
+        foreach ($this->methods as $method_metric) {
+            if ($method_metric->getName() == $method_name) {
+                return $method_metric;
+            }
+        }
+        return null;
+    }
+
+    /**
      * @param MethodMetric[] $methods
      */
     public function setMethods(array $methods)

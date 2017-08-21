@@ -91,7 +91,7 @@ final class Checker
     private function analyseMethod(\SimpleXMLElement $method)
     {
         $attributes = $method->attributes();
-        $method_name = (string) $attributes["fqname"];
+        $method_name = (string) $attributes["name"];
 
         $method_metric = new MethodMetric();
         $method_metric->setName($method_name);
