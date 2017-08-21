@@ -52,17 +52,18 @@ final class Checker
         $xml = $this->generateXMLReport();
         $packages = $xml->package;
         
-        $classesMetric = [];
+        $classes_metric = [];
 
         foreach ($packages as $package) {
             $classes = $package->class;
             
             foreach ($classes as $class) {
-                $classesMetric[] = $this->analyseClass($class);
+                $class_metric = $this->analyseClass($class);
+                $classes_metric[$class_metric->getName()] = $class_metric;
             }
         }
         
-        return $classesMetric;
+        return $classes_metric;
     }
 
     private function analyseClass(\SimpleXMLElement $class)
