@@ -5,7 +5,7 @@ Gephart Quality
 
 Dependencies
 ---
- - PHP >= 7.0
+ - PHP >= 7.1
  - pdepend/pdepend = 2.5.0
 
 Instalation
