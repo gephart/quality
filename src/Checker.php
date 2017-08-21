@@ -2,10 +2,9 @@
 
 namespace Gephart\Quality;
 
+use Gephart\Quality\Bridge\PDependBridge;
 use Gephart\Quality\Entity\ClassMetric;
 use Gephart\Quality\Entity\MethodMetric;
-use PDepend\Application;
-use PDepend\Engine;
 
 final class Checker
 {
@@ -13,11 +12,6 @@ final class Checker
      * @var string
      */
     private $dir = "";
-
-    /**
-     * @var string
-     */
-    private $cache_dir = "";
 
     /**
      * @var array
@@ -29,10 +23,15 @@ final class Checker
      */
     private $class_metrics = [];
 
+    /**
+     * @var PDependBridge
+     */
+    private $pdepend_bridge;
+
     public function __construct()
     {
+        $this->pdepend_bridge = new PDependBridge();
         $this->dir = realpath(__DIR__ . "/../../src");
-        $this->cache_dir = sys_get_temp_dir();
         $this->method_metrics = ["ccn" => 15, "loc" => 20];
         $this->class_metrics = ["ce" => 50, "dit" => 6, "nom" => 20];
     }
@@ -42,14 +41,9 @@ final class Checker
         $this->dir = $dir;
     }
 
-    public function setCacheDir(string $cache_dir)
-    {
-        $this->cache_dir = $cache_dir;
-    }
-
     public function analyse()
     {
-        $xml = $this->generateXMLReport();
+        $xml = $this->pdepend_bridge->generateXMLReport($this->dir);
         $packages = $xml->package;
         
         $classes_metric = [];
@@ -99,25 +93,5 @@ final class Checker
         $method_metric->setLoc((int) $attributes["loc"]);
 
         return $method_metric;
-    }
-
-    /**
-     * @return \SimpleXMLElement
-     */
-    public function generateXMLReport()
-    {
-        $dir = $this->dir;
-        $file = $this->cache_dir . "/gephart-quality.xml";
-
-        $app = new Application();
-        $generator = $app->getReportGeneratorFactory()->createGenerator("summary-xml", $file);
-
-        /** @var Engine $engine */
-        $engine = $app->getEngine();
-        $engine->addDirectory($dir);
-        $engine->addReportGenerator($generator);
-        $engine->analyze();
-
-        return simplexml_load_file($file);
     }
 }
