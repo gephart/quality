@@ -49,6 +49,8 @@ final class PDependBridge
      */
     private function generateXMLReport(string $dir): \SimpleXMLElement
     {
+        $this->turnOffErrorDisplaying();
+
         $file = $this->cache_dir . "/gephart-quality.xml";
 
         $app = new Application();
@@ -105,5 +107,13 @@ final class PDependBridge
         $method_metric->setLoc((int) $attributes["loc"]);
 
         return $method_metric;
+    }
+
+    private function turnOffErrorDisplaying()
+    {
+        error_reporting(0);
+        ini_set("display_errors",0);
+        set_error_handler(function(){});
+        set_exception_handler(function(){});
     }
 }
