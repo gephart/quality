@@ -51,7 +51,7 @@ final class PDependBridge
     {
         $this->turnOffErrorDisplaying();
 
-        $file = $this->cache_dir . "/gephart-quality.xml";
+        $file = $this->cache_dir . "/gephart-quality-".microtime(true).".xml";
 
         $app = new Application();
         $generator = $app
