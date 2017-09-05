@@ -2,6 +2,13 @@
 
 namespace Gephart\Quality\Entity;
 
+/**
+ * Abstract entity of metrics
+ *
+ * @package Gephart\Quality\Entity
+ * @author Michal Katuščák <michal@katuscak.cz>
+ * @since 0.4
+ */
 abstract class MetricAbstract
 {
 

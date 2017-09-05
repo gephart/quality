@@ -7,6 +7,13 @@ use Gephart\Quality\Entity\MethodMetric;
 use PDepend\Application;
 use PDepend\Engine;
 
+/**
+ * Bridge for PDepend
+ *
+ * @package Gephart\Quality\Bridge
+ * @author Michal Katuščák <michal@katuscak.cz>
+ * @since 0.4
+ */
 final class PDependBridge
 {
 

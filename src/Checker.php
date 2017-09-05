@@ -8,6 +8,13 @@ use Gephart\Quality\Entity\ClassQuality;
 use Gephart\Quality\Entity\Issue;
 use Gephart\Quality\Entity\MethodMetric;
 
+/**
+ * Quality Checker
+ *
+ * @package Gephart\Quality
+ * @author Michal Katuščák <michal@katuscak.cz>
+ * @since 0.4
+ */
 final class Checker
 {
     /**
@@ -71,6 +78,10 @@ final class Checker
         return $quality;
     }
 
+    /**
+     * @param ClassMetric $class_metric
+     * @return ClassQuality
+     */
     private function getQualityOfClass(ClassMetric $class_metric)
     {
         $class_quality = new ClassQuality();
@@ -92,6 +103,10 @@ final class Checker
         return $class_quality;
     }
 
+    /**
+     * @param ClassMetric $class_metric
+     * @return array
+     */
     private function getIsseuesOfClass(ClassMetric $class_metric)
     {
         $issues = [];
@@ -116,6 +131,10 @@ final class Checker
         return $issues;
     }
 
+    /**
+     * @param MethodMetric $method_metric
+     * @return array
+     */
     private function getIssuesOfMethod(MethodMetric $method_metric)
     {
         $issues = [];
@@ -141,6 +160,10 @@ final class Checker
         return $issues;
     }
 
+    /**
+     * @param ClassQuality $class_quality
+     * @return int
+     */
     private function calculateQuality(ClassQuality $class_quality)
     {
         $quality = 100;

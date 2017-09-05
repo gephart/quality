@@ -2,6 +2,13 @@
 
 namespace Gephart\Quality\Entity;
 
+/**
+ * Entity of class metrics
+ *
+ * @package Gephart\Quality\Entity
+ * @author Michal Katuščák <michal@katuscak.cz>
+ * @since 0.4
+ */
 final class ClassMetric extends MetricAbstract
 {
 

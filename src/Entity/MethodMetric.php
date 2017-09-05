@@ -2,6 +2,13 @@
 
 namespace Gephart\Quality\Entity;
 
+/**
+ * Entity of method metrics
+ *
+ * @package Gephart\Quality\Entity
+ * @author Michal Katuščák <michal@katuscak.cz>
+ * @since 0.4
+ */
 final class MethodMetric extends MetricAbstract
 {
 
