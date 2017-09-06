@@ -178,6 +178,10 @@ final class Checker
             }
         }
 
+        if ($quality < 0) {
+            $quality = 0;
+        }
+
         return $quality;
     }
 }
