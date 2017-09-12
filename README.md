@@ -18,6 +18,7 @@ composer require gephart/quality
 Using
 ---
 
+```
 $checker = new Gephart\Quality\Checker();
 $checker->setDir("src");
 $classes_quality = $checker->getQuality();
@@ -26,4 +27,4 @@ $classes_quality = $checker->getQuality();
 $classes_quality[0]->getPercent(); // 100
 $classes_quality[0]->getClassName(); // App\MyClass
 $classes_quality[0]->getIssues(); // Gephart\Quality\Entity\Issue[]
-
+```
