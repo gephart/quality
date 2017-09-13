@@ -43,7 +43,9 @@ final class PDependBridge
 
             foreach ($classes as $class) {
                 $class_metric = $this->analyseClass($class);
-                $classes_metric[$class_metric->getName()] = $class_metric;
+                if ($class_metric) {
+                    $classes_metric[$class_metric->getName()] = $class_metric;
+                }
             }
         }
 
@@ -75,13 +77,17 @@ final class PDependBridge
     }
 
     /**
+     * @since 0.4.3 - Exclude Entity
+     *
      * @param \SimpleXMLElement $class
-     * @return ClassMetric
+     * @return ClassMetric|bool
      */
     private function analyseClass(\SimpleXMLElement $class)
     {
         $attributes = $class->attributes();
         $class_name = (string) $attributes["fqname"];
+
+        if (strpos($class_name, "\\Entity\\") > 0) return false;
 
         $class_metric = new ClassMetric();
         $class_metric->setName($class_name);
