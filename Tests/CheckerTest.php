@@ -30,25 +30,25 @@ class CheckerTest extends \PHPUnit\Framework\TestCase
 
     public function testClassMetric()
     {
-        $class_metric = $this->classes[\Gephart\Quality\Entity\ClassMetric::class];
+        $class_metric = $this->classes[\Gephart\Quality\Bridge\PDependBridge::class];
 
-        $this->assertEquals($class_metric->getName(), \Gephart\Quality\Entity\ClassMetric::class);
-        $this->assertEquals($class_metric->getDit(), 1);
-        $this->assertEquals($class_metric->getCe(), 1);
-        $this->assertEquals($class_metric->getNom(), 11);
-        $this->assertEquals(count($class_metric->getMethods()), 11);
+        $this->assertEquals($class_metric->getName(), \Gephart\Quality\Bridge\PDependBridge::class);
+        $this->assertEquals($class_metric->getDit(), 0);
+        $this->assertEquals($class_metric->getCe(), 4);
+        $this->assertEquals($class_metric->getNom(), 6);
+        $this->assertEquals(count($class_metric->getMethods()), 6);
     }
 
     public function testMethodMetric()
     {
-        $class_metric = $this->classes[\Gephart\Quality\Entity\ClassMetric::class];
-        $method_metric = $class_metric->getMethod("getMethod");
+        $class_metric = $this->classes[\Gephart\Quality\Bridge\PDependBridge::class];
+        $method_metric = $class_metric->getMethod("analyse");
 
         $this->assertEquals(get_class($method_metric), \Gephart\Quality\Entity\MethodMetric::class);
 
-        $this->assertEquals($method_metric->getName(), "getMethod");
-        $this->assertEquals($method_metric->getCcn(), 3);
-        $this->assertEquals($method_metric->getLoc(), 9);
+        $this->assertEquals($method_metric->getName(), "analyse");
+        $this->assertEquals($method_metric->getCcn(), 4);
+        $this->assertEquals($method_metric->getLoc(), 20);
     }
 
     public function testQuality()
