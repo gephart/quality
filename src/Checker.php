@@ -122,6 +122,7 @@ final class Checker
                 $issue->setExpected($limit);
                 $issue->setGiven($given_metric);
                 $issue->setMetric($metric);
+                $issue->setPercent($percent);
                 $issue->setType("class");
 
                 $issues[] = $issue;
