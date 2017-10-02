@@ -125,5 +125,4 @@ final class Issue
     {
         $this->percent = $percent;
     }
-
 }

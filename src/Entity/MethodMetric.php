@@ -30,5 +30,4 @@ final class MethodMetric extends MetricAbstract
     {
         $this->ccn = $ccn;
     }
-
 }

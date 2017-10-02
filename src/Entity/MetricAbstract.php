@@ -125,5 +125,4 @@ abstract class MetricAbstract
     {
         $this->ncloc = $ncloc;
     }
-
 }

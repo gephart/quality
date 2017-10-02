@@ -87,7 +87,9 @@ final class PDependBridge
         $attributes = $class->attributes();
         $class_name = (string) $attributes["fqname"];
 
-        if (strpos($class_name, "\\Entity\\") > 0) return false;
+        if (strpos($class_name, "\\Entity\\") > 0) {
+            return false;
+        }
 
         $class_metric = new ClassMetric();
         $class_metric->setName($class_name);
@@ -125,8 +127,10 @@ final class PDependBridge
     private function turnOffErrorDisplaying()
     {
         error_reporting(0);
-        ini_set("display_errors",0);
-        set_error_handler(function(){});
-        set_exception_handler(function(){});
+        ini_set("display_errors", 0);
+        set_error_handler(function () {
+        });
+        set_exception_handler(function () {
+        });
     }
 }

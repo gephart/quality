@@ -84,5 +84,4 @@ final class ClassQuality
     {
         $this->issues = array_merge($this->issues, $issues);
     }
-
 }

@@ -128,5 +128,4 @@ final class ClassMetric extends MetricAbstract
 
         return false;
     }
-
 }
